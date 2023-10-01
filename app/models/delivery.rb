@@ -13,7 +13,8 @@
 #
 class Delivery < ApplicationRecord
   validates :description, presence: :true
-  
+
   belongs_to :user
   scope :received, -> { where(received: true) }
+  scope :not_received, -> { where(received: false) }
 end

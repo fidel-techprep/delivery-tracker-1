@@ -23,5 +23,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :deliveries
-  has_many :received_deliveries, -> { received }
+  has_many :received_deliveries, -> { received }, class_name: "Delivery"
+  has_many :pending_deliveries, -> { not_received }, class_name: "Delivery"
 end
